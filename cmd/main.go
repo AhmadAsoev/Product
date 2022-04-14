@@ -31,6 +31,8 @@ func main() {
 	//GetAllProduct
 	router.HandleFunc("/allProducts", handleFunc.GetAllProducts).Methods(GET)
 
+	//GetById
+	router.HandleFunc("/products/{id}", handleFunc.GetById).Methods(GET)
 	log.Println("server start!")
 	if err := http.ListenAndServe(port, router); err != nil {
 		log.Fatal("Server is not ready!")
