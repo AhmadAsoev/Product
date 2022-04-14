@@ -28,6 +28,9 @@ func main() {
 	//AddProduct
 	router.HandleFunc("/product", handleFunc.AddProduct).Methods(POST)
 
+	//GetAllProduct
+	router.HandleFunc("/allProducts", handleFunc.GetAllProducts).Methods(GET)
+
 	log.Println("server start!")
 	if err := http.ListenAndServe(port, router); err != nil {
 		log.Fatal("Server is not ready!")
