@@ -9,8 +9,9 @@ import (
 )
 
 const (
-	GET  = "GET"
-	POST = "POST"
+	GET    = "GET"
+	POST   = "POST"
+	DELETE = "DELETE"
 )
 
 func main() {
@@ -33,6 +34,9 @@ func main() {
 
 	//GetById
 	router.HandleFunc("/products/{id}", handleFunc.GetById).Methods(GET)
+	//DeleteById
+	router.HandleFunc("/products/{id}", handleFunc.DeleteById).Methods(DELETE)
+
 	log.Println("server start!")
 	if err := http.ListenAndServe(port, router); err != nil {
 		log.Fatal("Server is not ready!")
